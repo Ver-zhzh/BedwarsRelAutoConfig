@@ -2,7 +2,7 @@
 
 [中文文档](README_CN.md) | English
 
-**Version:** 1.0.0
+**Version:** 1.0.0  
 **Author:** Ver_zhzh
 
 ---
@@ -17,12 +17,11 @@
 - ✅ **Random Configuration**: Automatically select random configurations for each game
 - ✅ **Template System**: Create and manage configuration templates easily
 - ✅ **Hot Reload**: Apply configuration changes without server restart
-- ✅ **Subfolder Structure**: Organized configuration storage with no file conflicts
 - ✅ **Full SBA Support**: Complete support for BedwarsScoreBoardAddon configurations
 
 ---
 
-## 🎮 Supported Configurations
+## 🎮 Currently Supported Configuration Types
 
 ### ✅ Fully Supported (Per-Game)
 
@@ -31,29 +30,20 @@
 | **SBAconfig** | BedwarsScoreBoardAddon main config | ✅ Yes |
 | **teamshop** | BedwarsScoreBoardAddon team shop | ✅ Yes |
 
-### ⚠️ Partially Supported (Global)
+| [Only Limitation] Requires BedwarsScoreBoardAddon-Adapt adapted version
 
 | Type | Description | Multi-Game Support |
 |------|-------------|-------------------|
-| **config** | BedwarsRel main config | ⚠️ Single game only |
-| **shop** | BedwarsRel shop config | ⚠️ Single game only |
+| **config** | BedwarsRel main config | ⚠️ Recommended for single-server single-game |
+| **shop** | BedwarsRel shop config | Can be used for single-server multi-game |
 
-> **Note**: BedwarsRel configurations are global due to architectural limitations. For multi-game servers, we recommend using only SBA configurations.
+> **Note**: Due to architectural limitations, BedwarsRel's config is global. For single-server multi-game setups, config may be shared when multiple games run simultaneously. If possible, we will update a dedicated BedwarsRel adapted version in the future and optimize some content.
 
 ---
 
-## 📋 Requirements
-
-- **Minecraft Server**: Spigot/Paper 1.12.2 or higher
-- **Java**: 8 or higher
-- **Required Dependencies**:
-  - BedwarsRel 1.3.6+
-- **Optional Dependencies**:
-  - BedwarsScoreBoardAddon 2.13.1+ (recommended)
-
 ## 📦 Installation
 
-1. **Download** the latest release from [GitHub Releases](https://github.com/YOUR_USERNAME/BedwarsRelAutoConfig/releases)
+1. **Download** the latest release from [GitHub Releases](https://github.com/Ver-zhzh/BedwarsRelAutoConfig/releases)
 2. **Place** the JAR file in your server's `plugins` folder
 3. **Restart** your server
 4. **Configure** using the commands below
@@ -137,50 +127,6 @@
 
 ---
 
-## 🎯 Usage Examples
-
-### Example 1: Multi-Game Server with Different Modes
-
-```bash
-# Create templates
-/brac create SBAconfig normal
-/brac create SBAconfig hardcore
-/brac create SBAconfig speed
-
-# Apply to different games
-/brac enable bw4v4_1 SBAconfig normal
-/brac enable bw4v4_2 SBAconfig hardcore
-/brac enable bw4v4_3 SBAconfig speed
-```
-
-### Example 2: Random Configuration
-
-```bash
-# Create multiple templates
-/brac create SBAconfig mode_a
-/brac create SBAconfig mode_b
-/brac create SBAconfig mode_c
-
-# Enable random selection
-/brac RandomEnable bw4v4_1 SBAconfig
-
-# Exclude test template
-/brac RandomOut bw4v4_1 SBAconfig mode_c
-```
-
-### Example 3: Synchronized Multi-Type Random
-
-```bash
-# Enable random for both types
-/brac RandomEnable bw4v4_1 SBAconfig
-/brac RandomEnable bw4v4_1 teamshop
-
-# Both will use the same template name
-# If SBAconfig selects "pvp_mode", teamshop will also use "pvp_mode"
-```
-
----
-
 ## 📁 Directory Structure
 
 ```
@@ -230,83 +176,9 @@ defaults:
 
 ---
 
-## � Technical Details
-
-### How It Works
-
-1. **Template Storage**: Configurations are stored in subfolder structure
-2. **Runtime Injection**: Configurations are injected using Java reflection
-3. **Per-Game Isolation**: SBA configs are stored per-game using ConcurrentHashMap
-4. **Event-Driven**: Configurations are applied on game start/end events
-
-### Limitations
-
-- BedwarsRel's main config and shop config are global (architectural limitation)
-- For multi-game servers, only SBA configurations support true per-game isolation
-- Random configuration requires at least one template to be available
-
----
-
-## 🐛 Troubleshooting
-
-### Configuration Not Applied
-
-**Problem**: Configuration changes don't take effect
-
-**Solution**:
-1. Check if the template exists: `/brac list <type>`
-2. Verify game name is correct: `/brac info <game>`
-3. Check server logs for errors
-4. Try reloading: `/brac reload`
-
-### Multi-Game Conflicts
-
-**Problem**: Multiple games share the same configuration
-
-**Solution**:
-- Use only SBA configurations (SBAconfig and teamshop)
-- Avoid using BedwarsRel config and shop in multi-game environments
-
----
-
-## 📄 License
-
-This project is proprietary software. All rights reserved.
-
-- ✅ You may use this plugin on your server
-- ✅ You may report bugs and request features
-- ❌ You may not redistribute this plugin
-- ❌ You may not decompile or modify this plugin
-- ❌ You may not claim this plugin as your own work
-
----
-
-## 🤝 Support
-
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/BedwarsRelAutoConfig/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/BedwarsRelAutoConfig/discussions)
-
----
-
-## 📝 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
-
----
-
-## 👨‍� Author
+## 👨‍💻 Author
 
 **Ver_zhzh**
 
 ---
-
-## 🙏 Acknowledgments
-
-- BedwarsRel team for the amazing base plugin
-- BedwarsScoreBoardAddon team for the scoreboard addon
-- Spigot community for support and feedback
-
----
-
-**Made with ❤️ for the Minecraft community**
 
