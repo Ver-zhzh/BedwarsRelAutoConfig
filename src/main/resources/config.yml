@@ -1,0 +1,32 @@
+# BedwarsRelAutoConfig 配置文件
+
+# 插件设置
+settings:
+  # 调试模式 (输出详细日志)
+  debug: false
+
+# 路径配置
+paths:
+  # 配置模板存储目录
+  configs: "configs"
+
+  # 游戏-配置映射文件
+  mappings: "mappings.yml"
+
+  # 随机排除规则文件
+  random: "random.yml"
+
+# 默认配置模板来源
+# 创建新配置时将从这些路径复制文件
+defaults:
+  # BedwarsRel 插件配置
+  bedwarsrel-config: "plugins/BedwarsRel/config.yml"
+  bedwarsrel-shop: "plugins/BedwarsRel/shop.yml"
+
+  # BedwarsScoreBoardAddon 插件配置
+  sba-config: "plugins/BedwarsScoreBoardAddon/config.yml"
+  sba-teamshop: "plugins/BedwarsScoreBoardAddon/team_shop.yml"
+
+  # BedwarsItemAddon 插件配置
+  bwia-items: "plugins/BedwarsItemAddon/items.yml"
+
