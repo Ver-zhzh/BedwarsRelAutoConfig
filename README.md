@@ -2,7 +2,7 @@
 
 [中文文档](README_CN.md) | English
 
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Author:** Ver_zhzh
 
 ---
