@@ -1,0 +1,4 @@
+files:
+  - 
+    source: '/common/src/main/resources/locale.yml'
+    translation: '/common/src/main/resources/locale/%locale_with_underscore%.yml'
